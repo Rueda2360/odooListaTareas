@@ -1,0 +1,19 @@
+<odoo>
+    <data>
+
+          <record id="tarea0" model="lista_tareas.lista">
+            <field name="titulo">Tarea 0</field>
+            <field name="prioridad">6</field>
+	    <field name="realizada">False</field>
+	    <field name="descripcion">Esta es la descripcion de la Tarea 0</field>
+          </record>
+
+	  <record id="tarea1" model="lista_tareas.lista">
+            <field name="titulo">Tarea 1</field>
+            <field name="prioridad">10</field>
+            <field name="realizada">True</field>
+            <field name="descripcion">Esta es la descripcion de la Tarea 1</field>
+          </record>
+
+    </data>
+</odoo>
