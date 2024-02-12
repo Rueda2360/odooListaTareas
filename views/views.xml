@@ -6,36 +6,68 @@
         <field name="name">Lista de tareas aruedia202</field>
         <field name="model">lista_tareas.lista</field>
         <field name="arch" type="xml">
-		<kanban>
-            <field name="titulo"/>
-            <field name="prioridad"/>
-            <field name="urgente"/>
-            <field name="realizada"/>
-            <field name="descripcion"/>
+            <data>
+                <kanban>
+                    <field name="titulo"/>
+                    <field name="prioridad"/>
+                    <field name="urgente"/>
+                    <field name="realizada"/>
+                    <field name="descripcion"/>
 
-            <templates>
-                <t t-name="kanban-box">
-                    <div class="oe_kanban_content">
-                        <div class="oe_kanban_title">
-                            <field name="titulo"/>
-                        </div>
-                        <div class="oe_kanban_details">
-                            <field name="prioridad"/>
-                            <field name="urgente"/>
-                            <field name="realizada"/>
-                            <field name="descripcion"/>
-                        </div>
-                    </div>
-                </t>
-            </templates>
-        </kanban>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_content">
+                                <div class="oe_kanban_title">
+                                    <field name="titulo"/>
+                                </div>
+                                <div class="oe_kanban_details">
+                                    <field name="prioridad"/>
+                                    <field name="urgente"/>
+                                    <field name="realizada"/>
+                                    <field name="descripcion"/>
+                                    <field name="fecha_asignada"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </data>
+        </field>
+    </record>
+    <record id="vista_lista_tareas" model="ir.ui.view">
+        <field name="name">Lista de tareas</field>
+        <field name="model">lista_tareas.lista</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="titulo"/>
+                <field name="prioridad"/>
+                <field name="urgente"/>
+                <field name="realizada"/>
+                <field name="descripcion"/>
+                <field name="fecha_asignada"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="vista_calendario_tareas" model="ir.ui.view">
+        <field name="name">Calendario de tareas</field>
+        <field name="model">lista_tareas.lista</field>
+        <field name="arch" type="xml">
+            <calendar>
+                <field name="titulo"/>
+                <field name="date_assigned"/>
+                <field name="prioridad"/>
+                <field name="urgente"/>
+                <field name="realizada"/>
+                <field name="descripcion"/>
+            </calendar>
         </field>
     </record>
 
     <record id='action_tareas_kanban' model='ir.actions.act_window'>
-        <field name="name">Mis tareas (Kanban)</field>
+        <field name="name">Mis tareas</field>
         <field name="res_model">lista_tareas.lista</field>
-        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_mode">kanban,tree,form,calendar</field>
         <!-- Indicamos como contexto que la vista de referencia es la vista tareas_kanban_view.
         mas información en https://www.odoo.com/documentation/15.0/developer/reference/backend/views.html 
         -->
@@ -43,7 +75,7 @@
     </record>
 
     <!-- Definimos los "Menu Item"-->
-    <menuitem id="lista_tareas_menu_root" name="Mis tareas (Kanban)"/>
+    <menuitem id="lista_tareas_menu_root" name="Lista de Tareas - Lista, Kanban y Calendar"/>
     <menuitem id="menu_tareas_kanban" parent="lista_tareas_menu_root" action="action_tareas_kanban" sequence="10" />
 </odoo>
 

@@ -20,6 +20,7 @@ class lista_tareas(models.Model):
     urgente = fields.Boolean(compute="_value_urgente", store=True)
     realizada = fields.Boolean()
     descripcion = fields.Char()
+    fecha_asignada = fields.Date()
 
 
     # Este es un ejemplo de "valor computado." Este computo depende de la variable prioridad.
