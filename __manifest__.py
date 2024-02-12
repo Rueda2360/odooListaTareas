@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Lista de tareas",
+    'name': "Lista de tareas - Lista + Kanban",
 
     'summary': """
     Sencilla Lista de tareas""",

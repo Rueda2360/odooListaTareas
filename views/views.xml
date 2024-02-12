@@ -12,12 +12,12 @@
           <field name="prioridad"/>
           <field name="urgente"/>
           <field name="realizada"/>
-	  <field name="descripcion"/>
+	        <field name="descripcion"/>
         </tree>
       </field>
     </record>
 
-  <!-- Vista Kanban -->
+<!-- Vista Kanban -->
     <record model="ir.ui.view" id="lista_tareas_kanban_view">
       <field name="name">Lista de tareas aruedia202 - Kanban View</field>
       <field name="model">lista_tareas.lista</field>
@@ -31,19 +31,25 @@
         </kanban>
       </field>
     </record>
-    
     <!-- actions opening views on models -->
     <!-- Acciones al abrir las vistas en los modelos 
     https://www.odoo.com/documentation/16.0/developer/reference/addons/actions.html
     -->
 
     <record model="ir.actions.act_window" id="lista_tareas_action_window">
-      <field name="name">Listado de aruedia202</field>
+      <field name="name">Listado de aruedia202 - Lista</field>
       <field name="res_model">lista_tareas.lista</field>
       <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="lista_tareas.lista_tareas_tree_view"/>
     </record>
 
-
+    <!-- vista Kanban -->
+    <record model="ir.actions.act_window" id="lista_tareas_action_kanban">
+      <field name="name">Listado de aruedia202 - Kanban</field>
+      <field name="res_model">lista_tareas.lista</field>
+      <field name="view_mode">kanban,form</field>
+      <field name="view_id" ref="lista_tareas.lista_tareas_kanban_view"/>
+    </record>
 
     <!-- Top menu item -->
 
@@ -57,6 +63,8 @@
 
     <menuitem name="Listar Tareas" id="lista_tareas_menu_1_list" parent="lista_tareas_menu_1"
               action="lista_tareas_action_window"/>
+    <menuitem name="Listar Tareas - Kanban" id="lista_tareas_menu_1_kanban" parent="lista_tareas_menu_1"
+              action="lista_tareas_action_kanban"/>
 
   </data>
 </odoo>
