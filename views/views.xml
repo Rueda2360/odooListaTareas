@@ -38,18 +38,17 @@
 
 
   <record model="ir.actions.act_window" id="lista_tareas_action_window">
-    <field name="name">Listado de aruedia202 - Lista</field>
+    <field name="name">Lista de Tareas - Vista Lista</field>
     <field name="res_model">lista_tareas.lista</field>
     <field name="view_mode">tree,form</field>
-    <field name="view_id" ref="lista_tareas.lista_tareas_tree_view"/>
+    <field name="view_id" ref="module_name.lista_tareas"/>
   </record>
 
-
   <record model="ir.actions.act_window" id="lista_tareas_action_kanban">
-    <field name="name">Listado de aruedia202 - Kanban</field>
-    <field name="res_model">lista_tareas.lista</field>
-    <field name="view_mode">kanban,form</field>
-    <field name="view_id" ref="lista_tareas.lista_tareas_kanban_view"/>
+      <field name="name">Lista de Tareas - Vista Kanban</field>
+      <field name="res_model">lista_tareas.lista</field>
+      <field name="view_mode">kanban,form</field>
+      <field name="view_id" ref="module_name.lista_tareas_kanban_view"/>
   </record>
 
     <!-- Top menu item -->
